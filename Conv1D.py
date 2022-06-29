@@ -70,7 +70,7 @@ text_vectorizer.adapt(X_train)
 # Embedding
 embedding = Embedding(input_dim=MAX_VOCAB_LENGTH, output_dim=256, input_length=AVERAGE_WORD_LENGTH)
 
-# Training with simple neural network
+# Training with conv neural network
 model_2 = tf.keras.Sequential()
 model_2.add(text_vectorizer)
 model_2.add(embedding)

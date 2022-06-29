@@ -70,12 +70,12 @@ text_vectorizer.adapt(X_train)
 # Embedding
 embedding = Embedding(input_dim=MAX_VOCAB_LENGTH, output_dim=256, input_length=AVERAGE_WORD_LENGTH)
 
-# Training with simple neural network
+# Training with BERT neural network
 model_3 = tf.keras.Sequential()
 model_3.add(text_vectorizer)
 model_3.add(embedding)
 model_3.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, activation='tanh',return_sequences=True)))
-model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.007)))
+model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
 model_3.add(tf.keras.layers.Dropout(0.2))
 model_3.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
 model_3.add(tf.keras.layers.Dropout(0.2))
@@ -103,3 +103,4 @@ model_3.evaluate(X_test,Y_test)
 
 Road_Test = Road_Test_Data['text']
 #model_3.predict(Road_Test)
+

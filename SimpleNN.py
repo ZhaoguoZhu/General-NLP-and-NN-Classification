@@ -81,7 +81,7 @@ model_1.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
 model_1.compile(loss="binary_crossentropy",optimizer="adam", metrics=["accuracy"])
 model_1.summary()
-'''
+
 model_1_history = model_1.fit(x=X_train,
                               y=Y_train,
                               epochs=15,
@@ -91,4 +91,4 @@ model_1.evaluate(X_test,Y_test)
 
 Road_Test = Road_Test_Data['text']
 #model_1.predict(Road_Test)
-'''
+
