@@ -75,28 +75,29 @@ model_3 = tf.keras.Sequential()
 model_3.add(text_vectorizer)
 model_3.add(embedding)
 model_3.add(tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(64, activation='tanh',return_sequences=True)))
-model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
-model_3.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
-model_3.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
-model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.LSTM(64,return_sequences=True))
-model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(64,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
 model_3.add(tf.keras.layers.LSTM(64))
-model_3.add(tf.keras.layers.Dense(32,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(32,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
-model_3.add(tf.keras.layers.Dense(16,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(16,activation='relu',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 model_3.add(tf.keras.layers.Dropout(0.2))
-model_3.add(tf.keras.layers.Dense(1,activation='sigmoid',activity_regularizer=tf.keras.regularizers.L2(0.006)))
+model_3.add(tf.keras.layers.Dense(1,activation='sigmoid',activity_regularizer=tf.keras.regularizers.L2(0.0004)))
 
 
 model_3.compile(loss="binary_crossentropy",optimizer="adam", metrics=["accuracy"])
+model_3.summary()
 model_3_history = model_3.fit(x=X_train,
                               y=Y_train,
-                              epochs=5,
+                              epochs=15,
                               validation_split=0.2,verbose=2)
 
 model_3.evaluate(X_test,Y_test)

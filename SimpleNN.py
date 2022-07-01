@@ -79,6 +79,7 @@ model_1.add(tf.keras.layers.Dense(128,activation='relu',activity_regularizer=tf.
 model_1.add(tf.keras.layers.Dropout(0.2))
 model_1.add(tf.keras.layers.Dense(1, activation='sigmoid'))
 
+
 model_1.compile(loss="binary_crossentropy",optimizer="adam", metrics=["accuracy"])
 model_1.summary()
 
